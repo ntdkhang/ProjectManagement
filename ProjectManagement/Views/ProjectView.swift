@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ProjectView: View {
+    static var ongoingTag: String? = "Ongoing"
+    static var finishedTag: String? = "Finished"
+    
     let showFinishedProjects: Bool
     
     let projects: FetchRequest<Project>
@@ -27,7 +30,7 @@ struct ProjectView: View {
                 ForEach(projects.wrappedValue) { project in
                     Section(content: {
                         ForEach(project.projectTasks) { task in
-                            Text(task.taskTitle)
+                            ItemRowView(task: task)
                         }
                     }, header: {
                         Text(project.projectTitle)

@@ -28,7 +28,7 @@ extension Task {
         task.title = "Example Task"
         task.detail = "This is an example task"
         task.creationDate = Date()
-        task.completed = false
+        task.completed = true
         task.priority = 3
         
         return task
