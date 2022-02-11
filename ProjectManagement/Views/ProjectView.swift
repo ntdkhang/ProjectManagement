@@ -26,11 +26,11 @@ struct ProjectView: View {
             List {
                 ForEach(projects.wrappedValue) { project in
                     Section(content: {
-                        ForEach(project.tasks?.allObjects as? [Task] ?? []) { task in
-                            Text(task.title ?? "")
+                        ForEach(project.projectTasks) { task in
+                            Text(task.taskTitle)
                         }
                     }, header: {
-                        Text(project.title ?? "")
+                        Text(project.projectTitle)
                     })
                 }
             }
