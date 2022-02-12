@@ -16,10 +16,13 @@
 		420B267227B46048007D6F8D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B267127B46048007D6F8D /* HomeView.swift */; };
 		4243C3FD27B463FE00CD59D7 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4243C3FC27B463FE00CD59D7 /* ProjectView.swift */; };
 		42873D1427B5965A0004F6F1 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42873D1327B5965A0004F6F1 /* CloudKit.framework */; };
+		42BD32D727B7ECD80018E2C1 /* ProjectHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BD32D627B7ECD80018E2C1 /* ProjectHeaderView.swift */; };
+		42BD32D927B7F4870018E2C1 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42BD32D827B7F4870018E2C1 /* Colors.xcassets */; };
 		42E0A84C27B69E2F00C83231 /* Task_CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E0A84B27B69E2F00C83231 /* Task_CoreDataHelpers.swift */; };
 		42E0A84E27B69FA700C83231 /* Project_CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E0A84D27B69FA700C83231 /* Project_CoreDataHelpers.swift */; };
 		42E0A85027B6B9D000C83231 /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E0A84F27B6B9D000C83231 /* EditTaskView.swift */; };
 		42E0A85227B6C34500C83231 /* ItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E0A85127B6C34500C83231 /* ItemRowView.swift */; };
+		42E0A85427B6CC5C00C83231 /* Binding_OnChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E0A85327B6CC5C00C83231 /* Binding_OnChange.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,10 +37,13 @@
 		4243C3FC27B463FE00CD59D7 /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		42873D1127B5964E0004F6F1 /* ProjectManagement.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ProjectManagement.entitlements; sourceTree = "<group>"; };
 		42873D1327B5965A0004F6F1 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		42BD32D627B7ECD80018E2C1 /* ProjectHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectHeaderView.swift; sourceTree = "<group>"; };
+		42BD32D827B7F4870018E2C1 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		42E0A84B27B69E2F00C83231 /* Task_CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task_CoreDataHelpers.swift; sourceTree = "<group>"; };
 		42E0A84D27B69FA700C83231 /* Project_CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project_CoreDataHelpers.swift; sourceTree = "<group>"; };
 		42E0A84F27B6B9D000C83231 /* EditTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
 		42E0A85127B6C34500C83231 /* ItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRowView.swift; sourceTree = "<group>"; };
+		42E0A85327B6CC5C00C83231 /* Binding_OnChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binding_OnChange.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,9 +81,11 @@
 				42873D1127B5964E0004F6F1 /* ProjectManagement.entitlements */,
 				420B265E27B3F8FF007D6F8D /* ProjectManagementApp.swift */,
 				420B266F27B3FC25007D6F8D /* DataController.swift */,
+				42E0A85327B6CC5C00C83231 /* Binding_OnChange.swift */,
 				42E0A84927B69DCC00C83231 /* Views */,
 				42E0A84A27B69DE500C83231 /* Model */,
 				420B266227B3F900007D6F8D /* Assets.xcassets */,
+				42BD32D827B7F4870018E2C1 /* Colors.xcassets */,
 				420B266427B3F900007D6F8D /* Preview Content */,
 			);
 			path = ProjectManagement;
@@ -104,6 +112,7 @@
 			children = (
 				42E0A84F27B6B9D000C83231 /* EditTaskView.swift */,
 				420B266027B3F8FF007D6F8D /* ContentView.swift */,
+				42BD32D627B7ECD80018E2C1 /* ProjectHeaderView.swift */,
 				4243C3FC27B463FE00CD59D7 /* ProjectView.swift */,
 				420B267127B46048007D6F8D /* HomeView.swift */,
 				42E0A85127B6C34500C83231 /* ItemRowView.swift */,
@@ -179,6 +188,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42BD32D927B7F4870018E2C1 /* Colors.xcassets in Resources */,
 				420B266627B3F900007D6F8D /* Preview Assets.xcassets in Resources */,
 				420B266327B3F900007D6F8D /* Assets.xcassets in Resources */,
 			);
@@ -192,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42E0A85027B6B9D000C83231 /* EditTaskView.swift in Sources */,
+				42BD32D727B7ECD80018E2C1 /* ProjectHeaderView.swift in Sources */,
 				4243C3FD27B463FE00CD59D7 /* ProjectView.swift in Sources */,
 				420B266E27B3F9AC007D6F8D /* Main.xcdatamodeld in Sources */,
 				420B267027B3FC25007D6F8D /* DataController.swift in Sources */,
@@ -201,6 +212,7 @@
 				420B266127B3F8FF007D6F8D /* ContentView.swift in Sources */,
 				420B267227B46048007D6F8D /* HomeView.swift in Sources */,
 				420B265F27B3F8FF007D6F8D /* ProjectManagementApp.swift in Sources */,
+				42E0A85427B6CC5C00C83231 /* Binding_OnChange.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

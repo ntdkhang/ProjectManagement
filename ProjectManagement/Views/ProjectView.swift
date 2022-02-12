@@ -33,7 +33,8 @@ struct ProjectView: View {
                             ItemRowView(task: task)
                         }
                     }, header: {
-                        Text(project.projectTitle)
+                        ProjectHeaderView(project: project)
+                            .tint(Color(project.projectColor))
                     })
                 }
             }
