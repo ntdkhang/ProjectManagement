@@ -19,7 +19,8 @@ struct EditTaskView: View {
     
     init(task: Task) {
         self.task = task
-        _title = State(wrappedValue: task.taskTitle)
+        self.title = task.taskTitle
+//        _title = State(wrappedValue: task.taskTitle)
         _detail = State(wrappedValue: task.taskDetail)
         _priority = State(wrappedValue: Int(task.priority))
         _completed = State(wrappedValue: task.completed)
