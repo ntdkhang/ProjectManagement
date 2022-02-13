@@ -9,7 +9,7 @@ import Foundation
 
 extension Task {
     var taskTitle: String {
-        title ?? ""
+        title ?? "New task"
     }
     
     var taskDetail: String {
