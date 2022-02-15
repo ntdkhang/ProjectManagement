@@ -23,10 +23,12 @@ extension Project {
     }
     
     var projectTasks: [Task] {
-        let tasksArray = tasks?.allObjects as? [Task] ?? []
-         
-        return tasksArray.sorted {
-            sortTasks(first: $0, second: $1)
+        return tasks?.allObjects as? [Task] ?? []
+    }
+    
+    var projectTasksDefaultSorted: [Task] {
+        return projectTasks.sorted {
+            sortTasksDefault(first: $0, second: $1)
         }
     }
     
@@ -52,7 +54,7 @@ extension Project {
     }
     
     
-    private func sortTasks(first: Task, second: Task) -> Bool {
+    private func sortTasksDefault(first: Task, second: Task) -> Bool {
         // uncompleted tasks go first, completed stay at the bottom
         if (first.completed == true) {
             if second.completed == false {

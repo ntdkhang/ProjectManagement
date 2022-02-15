@@ -15,6 +15,8 @@ struct ProjectView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     
     let showFinishedProjects: Bool
+    @State var showingSortOrder: Bool = false
+    @State var sortOrder = Task.SortOrder.optimized
     
     let projects: FetchRequest<Project>
     
@@ -32,7 +34,7 @@ struct ProjectView: View {
             List {
                 ForEach(projects.wrappedValue) { project in
                     Section(content: {
-                        ForEach(project.projectTasks) { task in
+                        ForEach(tasks(for: project)) { task in
                             ItemRowView(task: task)
                         }
                         .onDelete { offsets in
@@ -68,21 +70,50 @@ struct ProjectView: View {
             .listStyle(InsetGroupedListStyle())
             .navigationTitle("\(showFinishedProjects ? "Finished Projects" : "Ongoing Projects")")
             .toolbar {
-                if showFinishedProjects == false {
-                    Button {
-                        withAnimation {
-                            let project = Project(context: managedObjectContext)
-                            project.finished = false
-                            project.creationDate = Date()
-                            dataController.save()
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    if showFinishedProjects == false {
+                        Button {
+                            withAnimation {
+                                let project = Project(context: managedObjectContext)
+                                project.finished = false
+                                project.creationDate = Date()
+                                dataController.save()
+                            }
+                        } label: {
+                            Label("Add Project", systemImage: "plus")
                         }
+                    }
+                }
+                
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        showingSortOrder.toggle()
                     } label: {
-                        Label("Add Project", systemImage: "plus")
+                        Label("Show sort order", systemImage: "arrow.up.arrow.down")
                     }
                 }
             }
+            .confirmationDialog(Text("Sort tasks by"),
+                                isPresented: $showingSortOrder) {
+                Button("Optimized") { sortOrder = .optimized }
+                Button("Creation Date") { sortOrder = .creationDate }
+                Button("Title") { sortOrder = .title }
+            }
+            
         }
     }
+    
+    func tasks(for project: Project) -> [Task] {
+        switch sortOrder {
+        case .title:
+            return project.projectTasks.sorted { $0.taskTitle < $1.taskTitle }
+        case .creationDate:
+            return project.projectTasks.sorted { $0.taskCreationDate < $1.taskCreationDate }
+        case .optimized:
+            return project.projectTasksDefaultSorted
+        }
+    }
+    
 }
 
 struct ProjectView_Previews: PreviewProvider {

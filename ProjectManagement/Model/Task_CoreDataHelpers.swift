@@ -8,6 +8,10 @@
 import Foundation
 
 extension Task {
+    enum SortOrder {
+        case optimized, title, creationDate
+    }
+    
     var taskTitle: String {
         title ?? "New task"
     }
