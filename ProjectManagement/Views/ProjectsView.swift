@@ -1,5 +1,5 @@
 //
-//  ProjectView.swift
+//  ProjectsView.swift
 //  ProjectManagement
 //
 //  Created by Nguyen Tran Duy Khang on 2/9/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProjectView: View {
+struct ProjectsView: View {
     static var ongoingTag: String? = "Ongoing"
     static var finishedTag: String? = "Finished"
     
@@ -15,8 +15,8 @@ struct ProjectView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     
     let showFinishedProjects: Bool
-    @State var showingSortOrder: Bool = false
-    @State var sortOrder = Task.SortOrder.optimized
+    @State private var showingSortOrder: Bool = false
+    @State private var sortOrder = Task.SortOrder.optimized
     
     let projects: FetchRequest<Project>
     
@@ -31,43 +31,50 @@ struct ProjectView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(projects.wrappedValue) { project in
-                    Section(content: {
-                        ForEach(tasks(for: project)) { task in
-                            ItemRowView(task: task)
-                        }
-                        .onDelete { offsets in
-                            let allTasks = project.projectTasks
-                            
-                            for offset in offsets {
-                                let task = allTasks[offset]
-                                dataController.delete(task)
-                            }
-                            
-                            dataController.save()
-                        }
-                        
-                        if showFinishedProjects == false {
-                            Button {
-                                withAnimation {
-                                    let task = Task(context: managedObjectContext)
-                                    task.project = project
-                                    task.creationDate = Date()
+            Group {
+                if projects.wrappedValue.isEmpty {
+                    Text("There's nothing here.")
+                        .foregroundColor(.secondary)
+                } else {
+                    List {
+                        ForEach(projects.wrappedValue) { project in
+                            Section(content: {
+                                ForEach(project.projectTasks(using: sortOrder)) { task in
+                                    TaskRowView(project: project, task: task)
+                                }
+                                .onDelete { offsets in
+                                    let allTasks = project.projectTasks(using: sortOrder)
+                                    
+                                    for offset in offsets {
+                                        let task = allTasks[offset]
+                                        dataController.delete(task)
+                                    }
+                                    
                                     dataController.save()
                                 }
-                            } label: {
-                                Label("Add a new task", systemImage: "plus")
-                            }
+                                
+                                if showFinishedProjects == false {
+                                    Button {
+                                        withAnimation {
+                                            let task = Task(context: managedObjectContext)
+                                            task.project = project
+                                            task.creationDate = Date()
+                                            dataController.save()
+                                        }
+                                    } label: {
+                                        Label("Add a new task", systemImage: "plus")
+                                    }
+                                }
+                                
+                            }, header: {
+                                ProjectHeaderView(project: project)
+                                    .tint(Color(project.projectColor))
+                            })
                         }
-                        
-                    }, header: {
-                        ProjectHeaderView(project: project)
-                            .tint(Color(project.projectColor))
-                    })
+                    }
+                    .listStyle(InsetGroupedListStyle())
                 }
             }
-            .listStyle(InsetGroupedListStyle())
             .navigationTitle("\(showFinishedProjects ? "Finished Projects" : "Ongoing Projects")")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -100,19 +107,10 @@ struct ProjectView: View {
                 Button("Title") { sortOrder = .title }
             }
             
+            SelectSomethingView()
         }
     }
     
-    func tasks(for project: Project) -> [Task] {
-        switch sortOrder {
-        case .title:
-            return project.projectTasks.sorted { $0.taskTitle < $1.taskTitle }
-        case .creationDate:
-            return project.projectTasks.sorted { $0.taskCreationDate < $1.taskCreationDate }
-        case .optimized:
-            return project.projectTasksDefaultSorted
-        }
-    }
     
 }
 
@@ -120,7 +118,7 @@ struct ProjectView_Previews: PreviewProvider {
     static var dataController = DataController.preview
     
     static var previews: some View {
-        ProjectView(showFinishedProjects: false)
+        ProjectsView(showFinishedProjects: false)
             .environment(\.managedObjectContext, dataController.container.viewContext)
             .environmentObject(dataController)
     }

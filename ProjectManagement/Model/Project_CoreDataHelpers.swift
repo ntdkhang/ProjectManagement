@@ -80,4 +80,14 @@ extension Project {
         
     }
     
+    func projectTasks(using sortOrder: Task.SortOrder) -> [Task] {
+        switch sortOrder {
+        case .title:
+            return projectTasks.sorted(by: \Task.taskTitle)
+        case .creationDate:
+            return projectTasks.sorted(by: \Task.taskCreationDate)
+        case .optimized:
+            return projectTasksDefaultSorted
+        }
+    }
 }

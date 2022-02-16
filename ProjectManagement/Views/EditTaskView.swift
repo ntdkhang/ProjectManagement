@@ -20,10 +20,10 @@ struct EditTaskView: View {
     init(task: Task) {
         self.task = task
         self.title = task.taskTitle
+        self.detail = task.taskDetail
+        self.priority = Int(task.priority)
+        self.completed = task.completed
 //        _title = State(wrappedValue: task.taskTitle)
-        _detail = State(wrappedValue: task.taskDetail)
-        _priority = State(wrappedValue: Int(task.priority))
-        _completed = State(wrappedValue: task.completed)
     }
     
     var body: some View {
