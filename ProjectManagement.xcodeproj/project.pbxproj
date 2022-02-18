@@ -30,6 +30,7 @@
 		42E0A85027B6B9D000C83231 /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E0A84F27B6B9D000C83231 /* EditTaskView.swift */; };
 		42E0A85227B6C34500C83231 /* TaskRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E0A85127B6C34500C83231 /* TaskRowView.swift */; };
 		42E0A85427B6CC5C00C83231 /* Binding_OnChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E0A85327B6CC5C00C83231 /* Binding_OnChange.swift */; };
+		42ED93D327BEE4ED00D5C42C /* Color+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ED93D227BEE4ED00D5C42C /* Color+Additions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		42E0A84F27B6B9D000C83231 /* EditTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
 		42E0A85127B6C34500C83231 /* TaskRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRowView.swift; sourceTree = "<group>"; };
 		42E0A85327B6CC5C00C83231 /* Binding_OnChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binding_OnChange.swift; sourceTree = "<group>"; };
+		42ED93D227BEE4ED00D5C42C /* Color+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Additions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				420B266F27B3FC25007D6F8D /* DataController.swift */,
 				4250065627BD59930054A5F8 /* Award.swift */,
 				4250065227BD4E5B0054A5F8 /* Bundle+Decodable.swift */,
+				42ED93D227BEE4ED00D5C42C /* Color+Additions.swift */,
 				4250064E27BD2DC70054A5F8 /* Sequence+Sorting.swift */,
 				42E0A85327B6CC5C00C83231 /* Binding_OnChange.swift */,
 				42E0A84927B69DCC00C83231 /* Views */,
@@ -229,6 +232,7 @@
 				4243C3FD27B463FE00CD59D7 /* ProjectsView.swift in Sources */,
 				420B266E27B3F9AC007D6F8D /* Main.xcdatamodeld in Sources */,
 				42BD32DB27B7F66E0018E2C1 /* EditProjectView.swift in Sources */,
+				42ED93D327BEE4ED00D5C42C /* Color+Additions.swift in Sources */,
 				420B267027B3FC25007D6F8D /* DataController.swift in Sources */,
 				4250065127BD49F20054A5F8 /* SelectSomethingView.swift in Sources */,
 				4250065727BD59930054A5F8 /* Award.swift in Sources */,
