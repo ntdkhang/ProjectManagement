@@ -1,5 +1,6 @@
 # ProjectManagement
 
+Note: I am still working on this app.
 This app allows you to manage all your projects, track your progress, and give you awards.
 
 Technologies used in this app:
