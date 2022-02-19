@@ -12,3 +12,5 @@ What I've learned:
 + Create static data for preview
 + Localization, translating my app to Vietnamese
 + Making my app accessible to everybody
+
+![](Localization.gif)
