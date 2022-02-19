@@ -75,7 +75,7 @@ struct ProjectsView: View {
                     .listStyle(InsetGroupedListStyle())
                 }
             }
-            .navigationTitle("\(showFinishedProjects ? "Finished Projects" : "Ongoing Projects")")
+            .navigationTitle(showFinishedProjects ? "Finished Projects" : "Ongoing Projects")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     if showFinishedProjects == false {
