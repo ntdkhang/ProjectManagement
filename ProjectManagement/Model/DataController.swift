@@ -41,7 +41,7 @@ class DataController: ObservableObject {
     func createSampleData() throws {
         let viewContext = container.viewContext
         
-        for i in 1...5 {
+        for i in 1...10 {
             let project = Project(context: viewContext)
             project.title = "Project \(i)"
             project.tasks = []
