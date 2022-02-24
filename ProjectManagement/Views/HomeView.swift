@@ -58,12 +58,12 @@ struct HomeView: View {
 //                        .fixedSize(horizontal: false, vertical: true)
                     }
                         
-                                Button {
-                                    dataController.deleteAll()
-                                    try? dataController.createSampleData()
-                                } label: {
-                                    Text("Add data")
-                                }
+//                                Button {
+//                                    dataController.deleteAll()
+//                                    try? dataController.createSampleData()
+//                                } label: {
+//                                    Text("Add data")
+//                                }
                     VStack (alignment: .leading) {
                         list("Up next", for: tasks.wrappedValue.prefix(3))
                         list("More to come", for: tasks.wrappedValue.dropFirst(3))

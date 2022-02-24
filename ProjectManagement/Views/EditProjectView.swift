@@ -30,12 +30,12 @@ struct EditProjectView: View {
     
     var body: some View {
         Form {
-            Section("Basic settings") {
+			Section(header: Text("Basic settings")) {
                 TextField("Project name", text: $title.onChange(update))
                 TextField("Description", text: $detail.onChange(update))
             }
             
-            Section("Custom project color") {
+			Section(header: Text("Custom project color")) {
                 LazyVGrid(columns: colorColumns) {
                     ForEach(Project.colors, id: \.self) { colorPalette in
                         ZStack {
@@ -46,7 +46,7 @@ struct EditProjectView: View {
                                 Image(systemName: "checkmark.circle")
                                     .foregroundColor(.white)
                                     .font(.largeTitle)
-                            } 
+                            }
                         }
                         .onTapGesture {
                             self.color = colorPalette
