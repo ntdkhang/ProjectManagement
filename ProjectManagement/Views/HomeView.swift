@@ -21,14 +21,21 @@ struct HomeView: View {
     ]
     
     init() {
-        let request: NSFetchRequest<Task> = Task.fetchRequest()
-        request.predicate = NSPredicate(format: "completed = false")
-        request.sortDescriptors = [
-            NSSortDescriptor(keyPath: \Task.priority, ascending: false)
-        ]
-        request.fetchLimit = 10
-        tasks = FetchRequest(fetchRequest: request)
+		let request: NSFetchRequest<Task> = NSFetchRequest(entityName: "Task")
+		
+		let taskCompletePredicate = NSPredicate(format: "completed = false")
+		let projectFinishPredicate = NSPredicate(format: "project.finished = false")
+		let compoundPredicate = NSCompoundPredicate(type: .and,
+													subpredicates: [taskCompletePredicate,
+																	projectFinishPredicate])
+		request.predicate = compoundPredicate
+		request.sortDescriptors = [
+			NSSortDescriptor(keyPath: \Task.priority, ascending: false)
+		]
+		request.fetchLimit = 10
+		tasks = FetchRequest(fetchRequest: request)
     }
+	
     
     var body: some View {
         NavigationView {
@@ -47,22 +54,23 @@ struct HomeView: View {
 						TaskListView(title: "More to come", tasks: tasks.wrappedValue.dropFirst(3))
                     }
                     .padding(.horizontal)
+					                                Button {
+					                                    dataController.deleteAll()
+					                                    try? dataController.createSampleData()
+					                                } label: {
+					                                    Text("Add data")
+					                                }
                 }
             }
             .background(Color.systemGroupedBackground.ignoresSafeArea())
             .navigationTitle("Home")
         }
+
     }
     
 }
 
 
-//                                Button {
-//                                    dataController.deleteAll()
-//                                    try? dataController.createSampleData()
-//                                } label: {
-//                                    Text("Add data")
-//                                }
 
 struct HomeView_Previews: PreviewProvider {
     static let dataController = DataController.preview

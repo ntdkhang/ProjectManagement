@@ -37,28 +37,8 @@ struct EditProjectView: View {
             
 			Section(header: Text("Custom project color")) {
                 LazyVGrid(columns: colorColumns) {
-                    ForEach(Project.colors, id: \.self) { colorPalette in
-                        ZStack {
-                            Color(colorPalette)
-                                .aspectRatio(1, contentMode: .fit)
-                                .cornerRadius(6)
-                            if colorPalette == self.color {
-                                Image(systemName: "checkmark.circle")
-                                    .foregroundColor(.white)
-                                    .font(.largeTitle)
-                            }
-                        }
-                        .onTapGesture {
-                            self.color = colorPalette
-                            update()
-                        }
-                        .accessibilityElement(children: .ignore)
-                        .accessibilityAddTraits(
-                            colorPalette == self.color
-                            ? [.isButton, .isSelected]
-                            : .isButton
-                        )
-                        .accessibilityLabel(LocalizedStringKey(colorPalette))
+                    ForEach(Project.colors, id: \.self) { colorSample in
+                        colorButton(for: colorSample)
                     }
                 }
                 .padding(.vertical)
@@ -82,12 +62,16 @@ struct EditProjectView: View {
         .navigationTitle("Edit Project")
         .onDisappear(perform: dataController.save)
         .alert(isPresented: $showingDeleteConfirmation) {
-            Alert(title: Text("Delete project?"),
-                  message: Text("Are you sure you want to delete this project? All data will be removed and cannot be undone"),
-                  primaryButton: .destructive(Text("Delete"), action: delete),
-                  secondaryButton: .cancel())
-        }
+			deleteAlert
+		}
     }
+	
+	var deleteAlert: Alert {
+		Alert(title: Text("Delete project?"),
+			  message: Text("Are you sure you want to delete this project? All data will be removed and cannot be undone"),
+			  primaryButton: .destructive(Text("Delete"), action: delete),
+			  secondaryButton: .cancel())
+	}
     
     func update() {
         project.objectWillChange.send()
@@ -102,6 +86,30 @@ struct EditProjectView: View {
         dataController.delete(project)
         dismiss.callAsFunction()
     }
+	
+	func colorButton(for colorSample: String) -> some View {
+		ZStack {
+			Color(colorSample)
+				.aspectRatio(1, contentMode: .fit)
+				.cornerRadius(6)
+			if colorSample == self.color {
+				Image(systemName: "checkmark.circle")
+					.foregroundColor(.white)
+					.font(.largeTitle)
+			}
+		}
+		.onTapGesture {
+			self.color = colorSample
+			update()
+		}
+		.accessibilityElement(children: .ignore)
+		.accessibilityAddTraits(
+			colorSample == self.color
+			? [.isButton, .isSelected]
+			: .isButton
+		)
+		.accessibilityLabel(LocalizedStringKey(colorSample))
+	}
 }
 
 struct EditProjectView_Previews: PreviewProvider {

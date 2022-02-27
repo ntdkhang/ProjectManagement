@@ -50,7 +50,7 @@ class DataController: ObservableObject {
             
             for j in 1...10 {
                 let task = Task(context: viewContext)
-                task.title = "Task \(j)"
+                task.title = "Task \(i).\(j)"
                 task.completed = Bool.random()
                 task.creationDate = Date()
                 task.project = project
