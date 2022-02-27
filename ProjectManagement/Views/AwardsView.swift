@@ -27,7 +27,9 @@ struct AwardsView: View {
                 }
             }
             .navigationTitle("Awards")
-            .alert(alertTitle, isPresented: $showingAwardDetails, actions: {},
+            .alert(alertTitle,
+				   isPresented: $showingAwardDetails,
+				   actions: {},
                    message: { Text(selectedAward.description) })
         }
     }
@@ -42,12 +44,18 @@ struct AwardsView: View {
 				.scaledToFit()
 				.padding()
 				.frame(width: 100, height: 100)
-				.foregroundColor(dataController.hasEarned(award: award) ?
-								 Color(award.color) : Color.secondary.opacity(0.5))
+				.foregroundColor(color(for: award))
 		}
-		.accessibilityLabel(Text(dataController.hasEarned(award: award) ?
-								 "Unlocked: \(award.name)" : "Locked"))
+		.accessibilityLabel(label(for: award))
 		.accessibilityHint(Text(award.description))
+	}
+
+	func color(for award: Award) -> Color {
+		dataController.hasEarned(award: award) ? Color(award.color) : Color.secondary.opacity(0.5)
+	}
+
+	func label(for award: Award) -> Text {
+		Text(dataController.hasEarned(award: award) ? "Unlocked: \(award.name)" : "Locked")
 	}
     
     var alertTitle: String {
@@ -55,8 +63,4 @@ struct AwardsView: View {
     }
 }
 
-//struct AwardsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AwardsView()
-//    }
-//}
+
