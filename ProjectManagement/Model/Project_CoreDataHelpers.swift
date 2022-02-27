@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 extension Project {
     static let colors = ["Pink", "Purple", "Red", "Orange", "Gold", "Green", "Teal",
@@ -39,6 +40,10 @@ extension Project {
         let completedTasks = totalTasks.filter { $0.completed }
         return Double(completedTasks.count) / Double(totalTasks.count)
     }
+	
+	var label: LocalizedStringKey {
+		return "\(projectTitle), \(projectTasks.count) tasks, \(completionAmount * 100, specifier: "%g")% complete"
+	}
     
     static var example: Project {
         let controller = DataController(inMemory: true)
