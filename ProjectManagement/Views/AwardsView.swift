@@ -22,21 +22,7 @@ struct AwardsView: View {
             ScrollView {
                 LazyVGrid(columns: columns) {
                     ForEach(Award.allAwards) { award in
-                        Button {
-                            selectedAward = award
-                            showingAwardDetails.toggle()
-                        } label: {
-                            Image(systemName: award.image)
-                                .resizable()
-                                .scaledToFit()
-                                .padding()
-                                .frame(width: 100, height: 100)
-                                .foregroundColor(dataController.hasEarned(award: award) ?
-                                                 Color(award.color) : Color.secondary.opacity(0.5))
-                        }
-						.accessibilityLabel(Text(dataController.hasEarned(award: award) ?
-												 "Unlocked: \(award.name)" : "Locked"))
-						.accessibilityHint(Text(award.description))
+                        awardButton(for: award)
                     }
                 }
             }
@@ -45,6 +31,24 @@ struct AwardsView: View {
                    message: { Text(selectedAward.description) })
         }
     }
+	
+	func awardButton(for award: Award) -> some View {
+		Button {
+			selectedAward = award
+			showingAwardDetails.toggle()
+		} label: {
+			Image(systemName: award.image)
+				.resizable()
+				.scaledToFit()
+				.padding()
+				.frame(width: 100, height: 100)
+				.foregroundColor(dataController.hasEarned(award: award) ?
+								 Color(award.color) : Color.secondary.opacity(0.5))
+		}
+		.accessibilityLabel(Text(dataController.hasEarned(award: award) ?
+								 "Unlocked: \(award.name)" : "Locked"))
+		.accessibilityHint(Text(award.description))
+	}
     
     var alertTitle: String {
         dataController.hasEarned(award: selectedAward) ? "Unlocked: \(selectedAward.name)" : "Locked"
