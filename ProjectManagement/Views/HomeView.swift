@@ -21,6 +21,8 @@ struct HomeView: View {
     ]
     
     init() {
+		// create a fetch request for the most-prioritized first 10 tasks that are not completed and their
+		// project is also not finished. 
 		let request: NSFetchRequest<Task> = NSFetchRequest(entityName: "Task")
 		
 		let taskCompletePredicate = NSPredicate(format: "completed = false")

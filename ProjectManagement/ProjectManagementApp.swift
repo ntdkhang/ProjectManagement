@@ -21,8 +21,14 @@ struct ProjectManagementApp: App {
             ContentView()
                 .environment(\.managedObjectContext, dataController.container.viewContext)
                 .environmentObject(dataController)
-                .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification),
-                           perform: save)
+                .onReceive(
+					// automatically save the data when the app is no longer in the foreground.
+					// use this instead of the Scene Phase API because I want to port this app to
+					// MacOS in the future (scene phase cannot detect our app not being focused on)
+					NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification),
+                           perform: save
+				)
+					
         }
     }
     
