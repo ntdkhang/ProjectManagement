@@ -57,17 +57,17 @@ class DataController: ObservableObject {
 	
 	/// Creates sample projects and tasks for manual testing.
 	/// - Throws: An NSError from calling save() on NSManagedObjectContext.
-    func createSampleData() throws {
+	func createSampleData(with targetNumber: Int = 5) throws {
         let viewContext = container.viewContext
         
-        for i in 1...10 {
+        for i in 1...targetNumber {
             let project = Project(context: viewContext)
             project.title = "Project \(i)"
             project.tasks = []
             project.creationDate = Date()
             project.finished = Bool.random()
             
-            for j in 1...10 {
+            for j in 1...(targetNumber*2) {
                 let task = Task(context: viewContext)
                 task.title = "Task \(i).\(j)"
                 task.completed = Bool.random()
@@ -146,5 +146,18 @@ class DataController: ObservableObject {
         }
         
     }
+	
+	
+	/// Count the total number of awards earned
+	/// - Returns: An integer, which is the number of awards earned
+	func countAwardsEarned() -> Int {
+		var count = 0
+		for award in Award.allAwards {
+			if hasEarned(award: award) {
+				count += 1
+			}
+		}
+		return count
+	}
     
 }
