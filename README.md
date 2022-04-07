@@ -10,6 +10,7 @@ Technologies used in this app:
 
 
 What I've learned:
++ Unit testing
 + Create custom fetch request
 + Create static data for preview
 + Localization, translating my app to Vietnamese

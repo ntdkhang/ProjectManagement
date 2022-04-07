@@ -22,7 +22,7 @@ class DataController: ObservableObject {
 	/// Defaults to permanent storage.
 	/// - Parameter inMemory: Whether to store the data in temporary memory or permanent storage. Defaults to permanent.
     init(inMemory: Bool = false) {
-        container = NSPersistentCloudKitContainer(name: "Main")
+		container = NSPersistentCloudKitContainer(name: "Main", managedObjectModel: Self.model)
         
 		// use a temporary database for testing purposes
 		// data in /dev/null will be automatically deleted after our app finished running
@@ -36,6 +36,19 @@ class DataController: ObservableObject {
             }
         }
     }
+	
+	
+	static let model: NSManagedObjectModel = {
+		guard let url = Bundle.main.url(forResource: "Main", withExtension: "momd") else {
+			fatalError("Failed to load model")
+		}
+		
+		guard let managedObjectModel = NSManagedObjectModel(contentsOf: url) else {
+			fatalError("Failed to load model")
+		}
+		
+		return managedObjectModel
+	}()
     
 	
 	/// Sample data for previewing.
@@ -146,18 +159,5 @@ class DataController: ObservableObject {
         }
         
     }
-	
-	
-	/// Count the total number of awards earned
-	/// - Returns: An integer, which is the number of awards earned
-	func countAwardsEarned() -> Int {
-		var count = 0
-		for award in Award.allAwards {
-			if hasEarned(award: award) {
-				count += 1
-			}
-		}
-		return count
-	}
-    
+			
 }

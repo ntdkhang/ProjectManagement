@@ -28,20 +28,16 @@ class AwardTests: BaseTestCase {
 		let milestones = [1, 10, 20, 50, 100, 250, 500, 1000]
 		
 		for (index, value) in milestones.enumerated() {
-			var tasks = [Task]()
 			for _ in 0..<value {
 				// create new task
-				let task = Task(context: managedObjectContext)
-				tasks.append(task)
+				let _ = Task(context: managedObjectContext)
 			}
 		// count awards earned
 			let count = awards.filter { award in
 				award.criterion == "tasks" && dataController.hasEarned(award: award)
 			}.count
 			XCTAssertEqual(index + 1, count, "Adding \(value) tasks should unlock \(index + 1) award")
-			for task in tasks {
-				dataController.delete(task)
-			}
+			dataController.deleteAll()
 		}
 	}
 
@@ -49,19 +45,15 @@ class AwardTests: BaseTestCase {
 		let milestones = [1, 10, 20, 50, 100, 250, 500, 1000]
 		
 		for (index, value) in milestones.enumerated() {
-			var tasks = [Task]()
 			for _ in 0..<value {
 				let task = Task(context: managedObjectContext)
-				tasks.append(task)
 				task.completed = true
 			}
 			let count = awards.filter { award in
 				award.criterion == "complete" && dataController.hasEarned(award: award)
 			}.count
 			XCTAssertEqual(index + 1, count, "completing  \(value) tasks should unlock \(index + 1) award")
-			for task in tasks {
-				dataController.delete(task)
-			}
+			dataController.deleteAll()
 		}
 	}
 }

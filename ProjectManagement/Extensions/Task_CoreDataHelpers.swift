@@ -25,7 +25,7 @@ extension Task {
     }
     
     static var example: Task {
-        let controller = DataController(inMemory: true)
+		let controller = DataController.preview
         let viewContext = controller.container.viewContext
         
         let task = Task(context: viewContext)
