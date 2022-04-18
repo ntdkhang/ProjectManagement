@@ -19,6 +19,9 @@
 		4243C3FD27B463FE00CD59D7 /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4243C3FC27B463FE00CD59D7 /* ProjectsView.swift */; };
 		424A426B27FE7FD20054BF05 /* DecodableDictionary.json in Resources */ = {isa = PBXBuildFile; fileRef = 424A426A27FE7FD20054BF05 /* DecodableDictionary.json */; };
 		424A426D27FE80460054BF05 /* DecodableString.json in Resources */ = {isa = PBXBuildFile; fileRef = 424A426C27FE80460054BF05 /* DecodableString.json */; };
+		424AEE7528076646007828F9 /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424AEE7428076646007828F9 /* PerformanceTests.swift */; };
+		424AEE7D28076C10007828F9 /* ProjectManagementUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424AEE7C28076C10007828F9 /* ProjectManagementUITests.swift */; };
+		424AEE7F28076C10007828F9 /* ProjectManagementUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424AEE7E28076C10007828F9 /* ProjectManagementUITestsLaunchTests.swift */; };
 		4250064F27BD2DC70054A5F8 /* Sequence+Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250064E27BD2DC70054A5F8 /* Sequence+Sorting.swift */; };
 		4250065127BD49F20054A5F8 /* SelectSomethingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250065027BD49F20054A5F8 /* SelectSomethingView.swift */; };
 		4250065327BD4E5B0054A5F8 /* Bundle+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250065227BD4E5B0054A5F8 /* Bundle+Decodable.swift */; };
@@ -46,6 +49,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		424AEE8028076C10007828F9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 420B265327B3F8FF007D6F8D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 420B265A27B3F8FF007D6F8D;
+			remoteInfo = ProjectManagement;
+		};
 		4272F2E127E629A70007B6BF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 420B265327B3F8FF007D6F8D /* Project object */;
@@ -69,6 +79,10 @@
 		4243C3FC27B463FE00CD59D7 /* ProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
 		424A426A27FE7FD20054BF05 /* DecodableDictionary.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DecodableDictionary.json; sourceTree = "<group>"; };
 		424A426C27FE80460054BF05 /* DecodableString.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DecodableString.json; sourceTree = "<group>"; };
+		424AEE7428076646007828F9 /* PerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTests.swift; sourceTree = "<group>"; };
+		424AEE7A28076C10007828F9 /* ProjectManagementUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectManagementUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		424AEE7C28076C10007828F9 /* ProjectManagementUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectManagementUITests.swift; sourceTree = "<group>"; };
+		424AEE7E28076C10007828F9 /* ProjectManagementUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectManagementUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4250064E27BD2DC70054A5F8 /* Sequence+Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Sorting.swift"; sourceTree = "<group>"; };
 		4250065027BD49F20054A5F8 /* SelectSomethingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSomethingView.swift; sourceTree = "<group>"; };
 		4250065227BD4E5B0054A5F8 /* Bundle+Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Decodable.swift"; sourceTree = "<group>"; };
@@ -109,6 +123,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		424AEE7728076C10007828F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4272F2DA27E629A70007B6BF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -124,6 +145,7 @@
 			children = (
 				420B265D27B3F8FF007D6F8D /* ProjectManagement */,
 				4272F2DE27E629A70007B6BF /* ProjectManagementTests */,
+				424AEE7B28076C10007828F9 /* ProjectManagementUITests */,
 				420B265C27B3F8FF007D6F8D /* Products */,
 				42873D1227B5965A0004F6F1 /* Frameworks */,
 			);
@@ -134,6 +156,7 @@
 			children = (
 				420B265B27B3F8FF007D6F8D /* ProjectManagement.app */,
 				4272F2DD27E629A70007B6BF /* ProjectManagementTests.xctest */,
+				424AEE7A28076C10007828F9 /* ProjectManagementUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -179,6 +202,15 @@
 				424A426C27FE80460054BF05 /* DecodableString.json */,
 			);
 			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		424AEE7B28076C10007828F9 /* ProjectManagementUITests */ = {
+			isa = PBXGroup;
+			children = (
+				424AEE7C28076C10007828F9 /* ProjectManagementUITests.swift */,
+				424AEE7E28076C10007828F9 /* ProjectManagementUITestsLaunchTests.swift */,
+			);
+			path = ProjectManagementUITests;
 			sourceTree = "<group>";
 		};
 		4272F2D427E61EAE0007B6BF /* Extensions */ = {
@@ -245,6 +277,7 @@
 				4272F2FE27E9675A0007B6BF /* AssetTest.swift */,
 				42EAC6B727EB9DBB00EFE3CC /* AwardTests.swift */,
 				42EAC6B927ECB72500EFE3CC /* DevelopmentTests.swift */,
+				424AEE7428076646007828F9 /* PerformanceTests.swift */,
 				42EAC6E327F1F42D00EFE3CC /* ExtensionsTests.swift */,
 			);
 			path = ProjectManagementTests;
@@ -288,6 +321,24 @@
 			productReference = 420B265B27B3F8FF007D6F8D /* ProjectManagement.app */;
 			productType = "com.apple.product-type.application";
 		};
+		424AEE7928076C10007828F9 /* ProjectManagementUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 424AEE8228076C10007828F9 /* Build configuration list for PBXNativeTarget "ProjectManagementUITests" */;
+			buildPhases = (
+				424AEE7628076C10007828F9 /* Sources */,
+				424AEE7728076C10007828F9 /* Frameworks */,
+				424AEE7828076C10007828F9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				424AEE8128076C10007828F9 /* PBXTargetDependency */,
+			);
+			name = ProjectManagementUITests;
+			productName = ProjectManagementUITests;
+			productReference = 424AEE7A28076C10007828F9 /* ProjectManagementUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		4272F2DC27E629A70007B6BF /* ProjectManagementTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4272F2E327E629A70007B6BF /* Build configuration list for PBXNativeTarget "ProjectManagementTests" */;
@@ -319,6 +370,10 @@
 					420B265A27B3F8FF007D6F8D = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
+					424AEE7928076C10007828F9 = {
+						CreatedOnToolsVersion = 13.3.1;
+						TestTargetID = 420B265A27B3F8FF007D6F8D;
+					};
 					4272F2DC27E629A70007B6BF = {
 						CreatedOnToolsVersion = 13.3;
 						TestTargetID = 420B265A27B3F8FF007D6F8D;
@@ -341,6 +396,7 @@
 			targets = (
 				420B265A27B3F8FF007D6F8D /* ProjectManagement */,
 				4272F2DC27E629A70007B6BF /* ProjectManagementTests */,
+				424AEE7928076C10007828F9 /* ProjectManagementUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -356,6 +412,13 @@
 				420B266627B3F900007D6F8D /* Preview Assets.xcassets in Resources */,
 				420B266327B3F900007D6F8D /* Assets.xcassets in Resources */,
 				42F0459127C1433200F4CCED /* Localizable.stringsdict in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		424AEE7828076C10007828F9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,10 +462,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		424AEE7628076C10007828F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				424AEE7D28076C10007828F9 /* ProjectManagementUITests.swift in Sources */,
+				424AEE7F28076C10007828F9 /* ProjectManagementUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4272F2D927E629A70007B6BF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				424AEE7528076646007828F9 /* PerformanceTests.swift in Sources */,
 				4272F2FF27E9675A0007B6BF /* AssetTest.swift in Sources */,
 				42EAC6E427F1F42E00EFE3CC /* ExtensionsTests.swift in Sources */,
 				42EAC6B827EB9DBB00EFE3CC /* AwardTests.swift in Sources */,
@@ -415,6 +488,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		424AEE8128076C10007828F9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 420B265A27B3F8FF007D6F8D /* ProjectManagement */;
+			targetProxy = 424AEE8028076C10007828F9 /* PBXContainerItemProxy */;
+		};
 		4272F2E227E629A70007B6BF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 420B265A27B3F8FF007D6F8D /* ProjectManagement */;
@@ -629,6 +707,42 @@
 			};
 			name = Release;
 		};
+		424AEE8328076C10007828F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T76274KP97;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.khang.nguyen.trd.ProjectManagementUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ProjectManagement;
+			};
+			name = Debug;
+		};
+		424AEE8428076C10007828F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T76274KP97;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.khang.nguyen.trd.ProjectManagementUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ProjectManagement;
+			};
+			name = Release;
+		};
 		4272F2E427E629A70007B6BF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -684,6 +798,15 @@
 			buildConfigurations = (
 				420B266A27B3F900007D6F8D /* Debug */,
 				420B266B27B3F900007D6F8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		424AEE8228076C10007828F9 /* Build configuration list for PBXNativeTarget "ProjectManagementUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				424AEE8328076C10007828F9 /* Debug */,
+				424AEE8428076C10007828F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

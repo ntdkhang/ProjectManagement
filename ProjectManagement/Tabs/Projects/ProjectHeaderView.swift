@@ -11,18 +11,20 @@ struct ProjectHeaderView: View {
     @ObservedObject var project: Project
     
     var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text(project.projectTitle)
-                
-                ProgressView(value: project.completionAmount)
-            }
-            
-            Spacer()
-            NavigationLink(destination: EditProjectView(project: project)) {
-                Image(systemName: "square.and.pencil")
-                    .imageScale(.large)
-            }
+		NavigationLink(destination: EditProjectView(project: project)) {
+			HStack {
+				VStack(alignment: .leading) {
+					Text(project.projectTitle)
+					
+					ProgressView(value: project.completionAmount)
+				}
+				
+				Spacer()
+				
+				Image(systemName: "square.and.pencil")
+					.imageScale(.large)
+					.accessibilityLabel("EDIT PROJECT")
+			}
         }
         .padding(.bottom, 8)
         .accessibilityElement(children: .combine)

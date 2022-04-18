@@ -27,6 +27,7 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
+      language = "en"
       codeCoverageEnabled = "YES"
       onlyGenerateCoverageForSpecifiedTargets = "YES">
       <CodeCoverageTargets>
@@ -46,6 +47,16 @@
                BlueprintIdentifier = "4272F2DC27E629A70007B6BF"
                BuildableName = "ProjectManagementTests.xctest"
                BlueprintName = "ProjectManagementTests"
+               ReferencedContainer = "container:ProjectManagement.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "424AEE7928076C10007828F9"
+               BuildableName = "ProjectManagementUITests.xctest"
+               BlueprintName = "ProjectManagementUITests"
                ReferencedContainer = "container:ProjectManagement.xcodeproj">
             </BuildableReference>
          </TestableReference>
