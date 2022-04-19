@@ -14,6 +14,7 @@
 		420B266E27B3F9AC007D6F8D /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 420B266C27B3F9AC007D6F8D /* Main.xcdatamodeld */; };
 		420B267027B3FC25007D6F8D /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B266F27B3FC25007D6F8D /* DataController.swift */; };
 		420B267227B46048007D6F8D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B267127B46048007D6F8D /* HomeView.swift */; };
+		42355463280E07CA00BA0DB9 /* ProjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42355462280E07CA00BA0DB9 /* ProjectsViewModel.swift */; };
 		423CAB9F27C83C81008F659B /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423CAB9E27C83C81008F659B /* TaskListView.swift */; };
 		423CABA127C83E82008F659B /* ProjectSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423CABA027C83E82008F659B /* ProjectSummaryView.swift */; };
 		4243C3FD27B463FE00CD59D7 /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4243C3FC27B463FE00CD59D7 /* ProjectsView.swift */; };
@@ -74,6 +75,7 @@
 		420B266D27B3F9AC007D6F8D /* Main.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Main.xcdatamodel; sourceTree = "<group>"; };
 		420B266F27B3FC25007D6F8D /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		420B267127B46048007D6F8D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		42355462280E07CA00BA0DB9 /* ProjectsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectsViewModel.swift; path = ProjectManagement/Tabs/Projects/ProjectsViewModel.swift; sourceTree = "<group>"; };
 		423CAB9E27C83C81008F659B /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 		423CABA027C83E82008F659B /* ProjectSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSummaryView.swift; sourceTree = "<group>"; };
 		4243C3FC27B463FE00CD59D7 /* ProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 		420B265227B3F8FF007D6F8D = {
 			isa = PBXGroup;
 			children = (
+				42355462280E07CA00BA0DB9 /* ProjectsViewModel.swift */,
 				420B265D27B3F8FF007D6F8D /* ProjectManagement */,
 				4272F2DE27E629A70007B6BF /* ProjectManagementTests */,
 				424AEE7B28076C10007828F9 /* ProjectManagementUITests */,
@@ -458,6 +461,7 @@
 				420B266127B3F8FF007D6F8D /* ContentView.swift in Sources */,
 				420B267227B46048007D6F8D /* HomeView.swift in Sources */,
 				420B265F27B3F8FF007D6F8D /* ProjectManagementApp.swift in Sources */,
+				42355463280E07CA00BA0DB9 /* ProjectsViewModel.swift in Sources */,
 				42E0A85427B6CC5C00C83231 /* Binding_OnChange.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,38 +11,26 @@ struct ProjectsView: View {
     static var ongoingTag: String? = "Ongoing"
     static var finishedTag: String? = "Finished"
     
-    @EnvironmentObject var dataController: DataController
-    @Environment(\.managedObjectContext) var managedObjectContext
-    
-    let showFinishedProjects: Bool
+	@StateObject var viewModel: ViewModel
+	
     @State private var showingSortOrder: Bool = false
-    @State private var sortOrder = Task.SortOrder.optimized
-    
-    let projects: FetchRequest<Project>
-    
-    init(showFinishedProjects: Bool) {
-        self.showFinishedProjects = showFinishedProjects
-        
-        projects = FetchRequest<Project>(entity: Project.entity(),
-                                         sortDescriptors: [
-            NSSortDescriptor(keyPath: \Project.creationDate, ascending: false)],
-                                         predicate: NSPredicate(format: "finished = %d", showFinishedProjects))
-    }
 	
 	var projectList: some View {
 		List {
-			ForEach(projects.wrappedValue) { project in
+			ForEach(viewModel.projects) { project in
 				Section(content: {
-					ForEach(project.projectTasks(using: sortOrder)) { task in
+					ForEach(project.projectTasks(using: viewModel.sortOrder)) { task in
 						TaskRowView(project: project, task: task)
 					}
 					.onDelete { offsets in
-						deleteTasks(offsets, from: project)
+						viewModel.deleteTasks(offsets, from: project)
 					}
 					
-					if showFinishedProjects == false {
+					if viewModel.showFinishedProjects == false {
 						Button {
-							addTask(to: project)
+							withAnimation {
+								viewModel.addTask(to: project)
+							}
 						} label: {
 							Label("Add a new task", systemImage: "plus")
 						}
@@ -59,8 +47,10 @@ struct ProjectsView: View {
     
 	var addProjectToolbarItem: some ToolbarContent {
 		ToolbarItem(placement: .navigationBarTrailing) {
-			if showFinishedProjects == false {
-				Button(action: addProject) {
+			if viewModel.showFinishedProjects == false {
+				Button {
+					withAnimation { viewModel.addProject() }
+				} label: {
 					Label("Add Project", systemImage: "plus")
 				}
 			}
@@ -81,64 +71,39 @@ struct ProjectsView: View {
     var body: some View {
         NavigationView {
             Group {
-                if projects.wrappedValue.isEmpty {
+                if viewModel.projects.isEmpty {
                     Text("There's nothing here.")
                         .foregroundColor(.secondary)
                 } else {
                     projectList
                 }
             }
-            .navigationTitle(showFinishedProjects ? "Finished Projects" : "Ongoing Projects")
+            .navigationTitle(viewModel.showFinishedProjects ? "Finished Projects" : "Ongoing Projects")
             .toolbar {
 				addProjectToolbarItem
 				showSortOrderToolbarItem
             }
             .confirmationDialog(Text("Sort tasks by"),
                                 isPresented: $showingSortOrder) {
-                Button("Optimized") { sortOrder = .optimized }
-                Button("Creation Date") { sortOrder = .creationDate }
-                Button("Title") { sortOrder = .title }
+                Button("Optimized") { viewModel.sortOrder = .optimized }
+                Button("Creation Date") { viewModel.sortOrder = .creationDate }
+                Button("Title") { viewModel.sortOrder = .title }
             }
             
             SelectSomethingView()
         }
     }
 	
-	func deleteTasks(_ offsets: IndexSet, from project: Project) {
-		let allTasks = project.projectTasks(using: sortOrder)
-		for offset in offsets {
-			let task = allTasks[offset]
-			dataController.delete(task)
-		}
-		dataController.save()
-	}
-	
-	func addTask(to project: Project) {
-		withAnimation {
-			let task = Task(context: managedObjectContext)
-			task.project = project
-			task.creationDate = Date()
-			dataController.save()
-		}
-	}
-    
-	func addProject() {
-		withAnimation {
-			let project = Project(context: managedObjectContext)
-			project.finished = false
-			project.creationDate = Date()
-			dataController.save()
-		}
+	init(dataController: DataController, showFinishedProjects: Bool) {
+		let viewModel = ViewModel(dataController: dataController, showFinishedProjects: showFinishedProjects)
+		_viewModel = StateObject(wrappedValue: viewModel)
 	}
     
 }
 
 struct ProjectView_Previews: PreviewProvider {
-    static var dataController = DataController.preview
     
     static var previews: some View {
-        ProjectsView(showFinishedProjects: false)
-            .environment(\.managedObjectContext, dataController.container.viewContext)
-            .environmentObject(dataController)
+		ProjectsView(dataController: DataController.preview, showFinishedProjects: false)
     }
 }

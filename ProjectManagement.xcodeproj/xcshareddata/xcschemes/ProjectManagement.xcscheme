@@ -59,6 +59,11 @@
                BlueprintName = "ProjectManagementUITests"
                ReferencedContainer = "container:ProjectManagement.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "ProjectManagementUITestsLaunchTests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>
