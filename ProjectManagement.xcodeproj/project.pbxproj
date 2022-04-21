@@ -30,6 +30,7 @@
 		4250065927BD5AA20054A5F8 /* AwardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250065827BD5AA20054A5F8 /* AwardsView.swift */; };
 		4272F2E027E629A70007B6BF /* ProjectManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4272F2DF27E629A70007B6BF /* ProjectManagementTests.swift */; };
 		4272F2FF27E9675A0007B6BF /* AssetTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4272F2FE27E9675A0007B6BF /* AssetTest.swift */; };
+		42762630280F3E4C001A4135 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4276262F280F3E4C001A4135 /* HomeViewModel.swift */; };
 		42873D1427B5965A0004F6F1 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42873D1327B5965A0004F6F1 /* CloudKit.framework */; };
 		42BD32D727B7ECD80018E2C1 /* ProjectHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BD32D627B7ECD80018E2C1 /* ProjectHeaderView.swift */; };
 		42BD32D927B7F4870018E2C1 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42BD32D827B7F4870018E2C1 /* Colors.xcassets */; };
@@ -75,7 +76,7 @@
 		420B266D27B3F9AC007D6F8D /* Main.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Main.xcdatamodel; sourceTree = "<group>"; };
 		420B266F27B3FC25007D6F8D /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		420B267127B46048007D6F8D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		42355462280E07CA00BA0DB9 /* ProjectsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectsViewModel.swift; path = ProjectManagement/Tabs/Projects/ProjectsViewModel.swift; sourceTree = "<group>"; };
+		42355462280E07CA00BA0DB9 /* ProjectsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewModel.swift; sourceTree = "<group>"; };
 		423CAB9E27C83C81008F659B /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 		423CABA027C83E82008F659B /* ProjectSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSummaryView.swift; sourceTree = "<group>"; };
 		4243C3FC27B463FE00CD59D7 /* ProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
@@ -93,6 +94,7 @@
 		4272F2DD27E629A70007B6BF /* ProjectManagementTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectManagementTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4272F2DF27E629A70007B6BF /* ProjectManagementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectManagementTests.swift; sourceTree = "<group>"; };
 		4272F2FE27E9675A0007B6BF /* AssetTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTest.swift; sourceTree = "<group>"; };
+		4276262F280F3E4C001A4135 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		42873D1127B5964E0004F6F1 /* ProjectManagement.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ProjectManagement.entitlements; sourceTree = "<group>"; };
 		42873D1327B5965A0004F6F1 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		42BD32D627B7ECD80018E2C1 /* ProjectHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectHeaderView.swift; sourceTree = "<group>"; };
@@ -145,7 +147,6 @@
 		420B265227B3F8FF007D6F8D = {
 			isa = PBXGroup;
 			children = (
-				42355462280E07CA00BA0DB9 /* ProjectsViewModel.swift */,
 				420B265D27B3F8FF007D6F8D /* ProjectManagement */,
 				4272F2DE27E629A70007B6BF /* ProjectManagementTests */,
 				424AEE7B28076C10007828F9 /* ProjectManagementUITests */,
@@ -244,6 +245,7 @@
 				420B267127B46048007D6F8D /* HomeView.swift */,
 				423CAB9E27C83C81008F659B /* TaskListView.swift */,
 				423CABA027C83E82008F659B /* ProjectSummaryView.swift */,
+				4276262F280F3E4C001A4135 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -251,6 +253,7 @@
 		4272F2D727E6235F0007B6BF /* Projects */ = {
 			isa = PBXGroup;
 			children = (
+				42355462280E07CA00BA0DB9 /* ProjectsViewModel.swift */,
 				42BD32DA27B7F66E0018E2C1 /* EditProjectView.swift */,
 				42E0A84F27B6B9D000C83231 /* EditTaskView.swift */,
 				42BD32D627B7ECD80018E2C1 /* ProjectHeaderView.swift */,
@@ -446,6 +449,7 @@
 				42BD32D727B7ECD80018E2C1 /* ProjectHeaderView.swift in Sources */,
 				4250065927BD5AA20054A5F8 /* AwardsView.swift in Sources */,
 				4243C3FD27B463FE00CD59D7 /* ProjectsView.swift in Sources */,
+				42762630280F3E4C001A4135 /* HomeViewModel.swift in Sources */,
 				420B266E27B3F9AC007D6F8D /* Main.xcdatamodeld in Sources */,
 				42BD32DB27B7F66E0018E2C1 /* EditProjectView.swift in Sources */,
 				42ED93D327BEE4ED00D5C42C /* Color+Additions.swift in Sources */,

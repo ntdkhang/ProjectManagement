@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TaskListView: View {
 	let title: LocalizedStringKey
-	let tasks: FetchedResults<Task>.SubSequence
+	let tasks: ArraySlice<Task>
 	
     var body: some View {
         if tasks.isEmpty {

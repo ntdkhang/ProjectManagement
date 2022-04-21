@@ -10,33 +10,16 @@ import SwiftUI
 struct HomeView: View {
     static var tag: String? = "Home"
     
-    @EnvironmentObject var dataController: DataController
-    @FetchRequest(entity: Project.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Project.title, ascending: true)],
-                  predicate: NSPredicate(format: "finished = false"))
-    var projects: FetchedResults<Project>
-    let tasks: FetchRequest<Task>
+	@StateObject var viewModel: ViewModel
     
     let projectRows: [GridItem] = [
         GridItem(.fixed(100))
     ]
     
-    init() {
-		// create a fetch request for the most-prioritized first 10 tasks that are not completed and their
-		// project is also not finished. 
-		let request: NSFetchRequest<Task> = NSFetchRequest(entityName: "Task")
-		
-		let taskCompletePredicate = NSPredicate(format: "completed = false")
-		let projectFinishPredicate = NSPredicate(format: "project.finished = false")
-		let compoundPredicate = NSCompoundPredicate(type: .and,
-													subpredicates: [taskCompletePredicate,
-																	projectFinishPredicate])
-		request.predicate = compoundPredicate
-		request.sortDescriptors = [
-			NSSortDescriptor(keyPath: \Task.priority, ascending: false)
-		]
-		request.fetchLimit = 10
-		tasks = FetchRequest(fetchRequest: request)
-    }
+	init(dataController: DataController) {
+		let viewModel = ViewModel(dataController: dataController)
+		_viewModel = StateObject(wrappedValue: viewModel)
+	}
 	
     
     var body: some View {
@@ -45,27 +28,24 @@ struct HomeView: View {
                 VStack(alignment: .leading) {
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHGrid(rows: projectRows) {
-							ForEach(projects, content: ProjectSummaryView.init)
+							ForEach(viewModel.projects, content: ProjectSummaryView.init)
 						}
                         .padding([.horizontal, .top], 8)
 //                        .fixedSize(horizontal: false, vertical: true)
                     }
 
                     VStack (alignment: .leading) {
-						TaskListView(title: "Up next", tasks: tasks.wrappedValue.prefix(3))
-						TaskListView(title: "More to come", tasks: tasks.wrappedValue.dropFirst(3))
+						TaskListView(title: "Up next", tasks: viewModel.upNext)
+						TaskListView(title: "More to come", tasks: viewModel.moreToCome)
                     }
                     .padding(.horizontal)
-					                                Button {
-					                                    dataController.deleteAll()
-					                                    try? dataController.createSampleData()
-					                                } label: {
-					                                    Text("Add data")
-					                                }
-                }
+				}
             }
             .background(Color.systemGroupedBackground.ignoresSafeArea())
             .navigationTitle("Home")
+			.toolbar {
+				Button("Add Data", action: viewModel.addSampleData)
+			}
         }
 
     }
@@ -75,10 +55,7 @@ struct HomeView: View {
 
 
 struct HomeView_Previews: PreviewProvider {
-    static let dataController = DataController.preview
     static var previews: some View {
-        HomeView()
-            .environment(\.managedObjectContext, dataController.container.viewContext)
-            .environmentObject(dataController)
+		HomeView(dataController: DataController.preview)
     }
 }
