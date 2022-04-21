@@ -19,6 +19,7 @@ struct ProjectSummaryView: View {
 			ProgressView(value: project.completionAmount)
 				.tint(Color(project.projectColor))
 		}
+		.frame(width: 180)
 		.padding()
 		.background(Color.secondarySystemGroupedBackground)
 		.cornerRadius(10)

@@ -36,9 +36,11 @@ struct TaskListView: View {
 				.frame(width: 45, height: 45)
 			VStack(alignment: .leading) {
 				Text(task.taskTitle)
-					.font(.title2)
+					.font(.title3)
 					.foregroundColor(.primary)
 					.frame(maxWidth: .infinity, alignment: .leading)
+					.lineLimit(2)
+					.multilineTextAlignment(.leading)
 				
 				if !task.taskDetail.isEmpty {
 					Text(task.taskDetail)

@@ -43,9 +43,11 @@ struct HomeView: View {
             }
             .background(Color.systemGroupedBackground.ignoresSafeArea())
             .navigationTitle("Home")
-			.toolbar {
-				Button("Add Data", action: viewModel.addSampleData)
-			}
+			
+			// MARK: - Tool bar button for adding debug data
+//			.toolbar {
+//				Button("Add Data", action: viewModel.addSampleData)
+//			}
         }
 
     }
