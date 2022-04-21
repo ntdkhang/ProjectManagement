@@ -2,7 +2,7 @@
 
 This app allows you to manage all your projects, track your progress, and give you awards.
 
-![Home View](image.png)
+<img src="https://github.com/ntdkhang/ProjectManagement/blob/main/image.png" width="200">
 
 Technologies used in this app:
 + SwiftUI
