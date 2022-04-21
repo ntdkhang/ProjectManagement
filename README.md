@@ -1,8 +1,8 @@
 # ProjectManagement
 
-Note: I am still working on this app.
-
 This app allows you to manage all your projects, track your progress, and give you awards.
+
+![Home View](image.png)
 
 Technologies used in this app:
 + SwiftUI
@@ -11,9 +11,10 @@ Technologies used in this app:
 
 What I've learned:
 + Unit testing
++ UI testing
 + Create custom fetch request
 + Create static data for preview
 + Localization, translating my app to Vietnamese
-+ Making my app accessible to everybody
++ Making my app accessible to everyone
 
 ![](Localization.gif)
